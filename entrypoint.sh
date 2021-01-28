@@ -8,7 +8,7 @@ check_mongodb_is_available() {
 create_dbs_and_users() {
 	for db in ${MONGODB_DBS//,/ }; do
 		echo "{ping: 1}" | mongo "mongodb://${db%%:*}:${db#*:}@${MONGODB_HOST}:${MONGODB_PORT}/${db%%:*}" >/dev/null \
-		&& { echo "The db $db exists. Skipping"; continue; }
+		&& { echo "The db ${db%%:*} exists. Skipping"; continue; }
 
 		echo "use ${db%%:*}" > /tmp/create_db_and_user.js
 		echo "db.createUser({user: \"${db%%:*}\", pwd: \"${db#*:}\", roles: [\"dbOwner\"]})" >> /tmp/create_db_and_user.js
