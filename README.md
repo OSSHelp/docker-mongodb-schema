@@ -4,7 +4,7 @@
 
 ## Description
 
-One-shot container for create MongoDB databases and users.
+One-shot container for creating MongoDB databases and users.
 
 ## Deploy examples
 
