@@ -1,6 +1,7 @@
 #!/bin/bash
 # shellcheck disable=SC2086
 
+
 check_mongodb_is_available() {
 	echo "{ping: 1}" | mongo "mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}" >/dev/null
 }
